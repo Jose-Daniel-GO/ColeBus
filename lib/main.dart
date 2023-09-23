@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/login.dart';
+import 'pages/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +20,10 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: LoginPage(),
+      routes:{
+        "login": (context)=>LoginPage(),
+        "signup": (context)=>SignUpPage(),
+      }
     );
   }
 }

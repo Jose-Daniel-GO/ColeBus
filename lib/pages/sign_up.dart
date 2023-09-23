@@ -4,14 +4,14 @@ import 'package:flutter/services.dart';
 import '../widgets/circle.dart';
 import '../widgets/input_text.dart';
 
-class LoginPage extends StatefulWidget {
-  // const LoginPage({super.key});
+class SignUpPage extends StatefulWidget {
+  // const SignUpPage({super.key});
   @override
   // _LoginPageState createState() => _LoginPageState();
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignUpPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<SignUpPage> {
   @override
   void initState() {
     // TODO: implement initState
@@ -62,15 +62,15 @@ class _LoginPageState extends State<LoginPage> {
                             margin: EdgeInsets.only(top: size.width * 0.3),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
+                                borderRadius: BorderRadius.circular(45),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: Colors.black12, blurRadius: 10),
+                                      color: Colors.black12, blurRadius: 30),
                                 ]),
                           ),
                           SizedBox(height: 30),
                           Text(
-                            "De regreso a \n Clases",
+                            "Nueva \n Aventura",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w300),
@@ -86,6 +86,15 @@ class _LoginPageState extends State<LoginPage> {
                                   child: Column(
                                 children: [
                                   InputText(
+                                      label: "Nombre de Usuario",
+                                      validator: (String text) {
+                                        if (RegExp(r'^[a-zA-Z0-9]+$')
+                                            .hasMatch(text)) {
+                                          return null;
+                                        }
+                                        return "Correo Incorrecto";
+                                      }),
+                                  InputText(
                                       label: "Correo electronico",
                                       inputType: TextInputType.emailAddress,
                                       validator: (String text) {
@@ -94,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                                         }
                                         return "Correo Incorrecto";
                                       }),
-                                  SizedBox(height: 40),
+                                  SizedBox(height: 20),
                                   InputText(
                                       label: "Contraseña",
                                       validator: (String text) {
@@ -105,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
                                       })
                                 ],
                               ))),
-                          SizedBox(height: 40),
+                          SizedBox(height: 20),
                           ConstrainedBox(
                             constraints:
                                 BoxConstraints(maxWidth: 350, minWidth: 350),
@@ -121,12 +130,11 @@ class _LoginPageState extends State<LoginPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text("Registrarse",
+                              Text("Ya tieners una cuenta?",
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.black54)),
                               CupertinoButton(
-                                  onPressed: () =>
-                                      Navigator.pushNamed(context, "signup"),
+                                  onPressed: ()=>Navigator.pop(context),
                                   child: Text("Ingresar",
                                       style: TextStyle(fontSize: 16)))
                             ],
@@ -135,6 +143,21 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ])),
               ),
+            ),
+            Positioned(
+              left: 10,
+              top: 10,
+              child: SafeArea(
+                  child: CupertinoButton(
+                padding: EdgeInsets.all(10),
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.black26,
+                onPressed: () => Navigator.pop(context),
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+              )),
             )
           ],
         ),
