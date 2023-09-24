@@ -5,16 +5,13 @@ import '../widgets/circle.dart';
 import '../widgets/input_text.dart';
 
 class LoginPage extends StatefulWidget {
-  // const LoginPage({super.key});
   @override
-  // _LoginPageState createState() => _LoginPageState();
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
-    // TODO: implement initState
 
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   }
@@ -117,7 +114,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: CupertinoButton(
                               color: CupertinoColors.activeBlue,
                               borderRadius: BorderRadius.circular(4),
-                              onPressed: () {},
+                              onPressed: () =>
+                                  Navigator.pushNamed(context, "dashboard"),
                               child: Text("Iniciar sesion",
                                   style: TextStyle(fontSize: 18)),
                             ),
@@ -132,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                               CupertinoButton(
                                   onPressed: () =>
                                       Navigator.pushNamed(context, "signup"),
-                                  child: Text("Ingresar",
+                                  child: Text("Registrase",
                                       style: TextStyle(fontSize: 16)))
                             ],
                           )
