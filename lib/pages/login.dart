@@ -65,8 +65,13 @@ class _LoginPageState extends State<LoginPage> {
                                 borderRadius: BorderRadius.circular(15),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: Colors.black12, blurRadius: 10),
+                                    color: Colors.black12,
+                                    blurRadius: 30,
+                                    offset: Offset(0, 3),
+                                    spreadRadius: 4,
+                                  ),
                                 ]),
+                            child: Image.asset("assets/images/ColeBus.png"),
                           ),
                           SizedBox(height: 30),
                           Text(

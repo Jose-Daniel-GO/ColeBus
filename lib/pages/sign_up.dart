@@ -62,11 +62,16 @@ class _LoginPageState extends State<SignUpPage> {
                             margin: EdgeInsets.only(top: size.width * 0.3),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(45),
+                                borderRadius: BorderRadius.circular(50),
                                 boxShadow: [
                                   BoxShadow(
-                                      color: Colors.black12, blurRadius: 30),
+                                    color: Colors.grey,
+                                    blurRadius: 30,
+                                    offset: Offset(0, 3),
+                                    spreadRadius: 4,
+                                  ),
                                 ]),
+                            child: Image.asset("assets/images/userandroid.png"),
                           ),
                           SizedBox(height: 30),
                           Text(
@@ -134,7 +139,7 @@ class _LoginPageState extends State<SignUpPage> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.black54)),
                               CupertinoButton(
-                                  onPressed: ()=>Navigator.pop(context),
+                                  onPressed: () => Navigator.pop(context),
                                   child: Text("Ingresar",
                                       style: TextStyle(fontSize: 16)))
                             ],
